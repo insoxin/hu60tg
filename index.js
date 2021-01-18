@@ -18,10 +18,7 @@ async function saveRawJson (newTopicList) {
   const words = newTopicList.map(o => ({
     title: o.title,
     category: o.forum_name,
-    description: o.name,
-    url: o.id,
-    hot: o.review,
-    ads: !!o.promotion
+    description: o.name
   }))
   let wordsAlreadyDownload = []
   try {
