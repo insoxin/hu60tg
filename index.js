@@ -12,7 +12,7 @@ const TRENDING_DETAIL_URL = 'https://m.s.weibo.com/topic/detail?q='
 
 const bot = new Telegraf(TOKEN)
 
-async function saveRawJson ("userInfo) {
+async function saveRawJson (newTopicList) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
