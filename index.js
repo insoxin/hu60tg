@@ -9,7 +9,7 @@ const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
-
+const response = await fetch("https://hu60.cn/q.php/index.index.json");
 const bot = new Telegraf(TOKEN)
 
 async function saveRawJson (newTopicList) {
