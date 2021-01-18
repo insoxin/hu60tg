@@ -16,8 +16,8 @@ async function saveRawJson (newTopicList) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
-    title: o.uid,
-    url: o.name
+    title: o.title[0],
+    url: o.id
   }))
   let wordsAlreadyDownload = []
   try {
