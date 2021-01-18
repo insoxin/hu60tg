@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <title>微博热搜站点</title>
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      color: #2c3e50;
+    }
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container p {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <h2 class="text-center m-b-20 f00-light">{{ today }} 微博热搜榜</h2>
+    <div class="container-xl d-flex flex-justify-center flex-wrap flex-content-start">
+      <div class="p-2 col-12" v-for="item in hots">
+        <div class="Box Box--condensed">
+          <div class="Box-header d-flex flex-items-center">
+            <h3 class="Box-title overflow-hidden flex-auto">
+              <a :href="item.url" target="_blank" class="text-gray-dark">{{ item.title }}</a>
+              <span class="Counter Counter--gray-dark ml-1">
+                {{ item.category }}
+              </span>
+
+              <span v-show="item.ads" class="IssueLabel bg-red text-white ml-1">
+                {{ item.ads ? 'ad' : '' }}
+              </span>
+            </h3>
+            <span class="text-mono text-small text-orange-light">
+              {{ item.hot }}
+            </span>
+          </div>
+          <div class="Box-body">
+            <p>{{ item.description || '暂无简介' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/dayjs"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const RenderHtmlApp = {
+      data() {
+        return {
+          hots: [],
+          today: null
+        }
+      },
+      mounted() {
+        this.fetchTodayHots()
+        this.today = dayjs().format('YYYY-MM-DD')
+      },
+      methods: {
+        async fetchTodayHots() {
+          const res = await fetch(`https://raw.githubusercontent.com/insoxin/tg-wb-trending/master/api/${dayjs().format('YYYY-MM-DD')}.json`)
+          const json = await res.json()
+          this.hots = json
+        },
+        openOrigin(item){
+          window.open(item.url)
+        }
+      }
+    }
+    Vue.createApp(RenderHtmlApp).mount('#root')
+  </script>  
+</body>
+</html>
