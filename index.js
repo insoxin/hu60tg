@@ -20,12 +20,17 @@ async function saveRawJson (newTopicList) {
     category: o.forum_name,
     description: o.name
   }))
-let wordsAlreadyDownload: SearchWord[] = [];
-if (await exists(fullPath)) {
-  const content = await Deno.readTextFile(fullPath);
-  wordsAlreadyDownload = JSON.parse(content);
+let wordsAlreadyDownload = []
+  try {
+    await fs.stat(fullPath)
+    const content = await fs.readFile(fullPath)
+    wordsAlreadyDownload = JSON.parse(content)
+  } catch (err) {
+    // file not exsit
+  }
+  const allHots = _.uniqBy(_.concat(words, wordsAlreadyDownload), 'title')
+  await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
-
 // 保存原始数据
 const wordsAll = mergeWords(words, wordsAlreadyDownload);
 await Deno.writeTextFile(fullPath, JSON.stringify(wordsAll));
