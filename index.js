@@ -7,20 +7,23 @@ const axios = require('axios')
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
-const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
-const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
-const response = await fetch("https://hu60.cn/q.php/index.index.json");
+const TRENDING_URL = 'https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Drealtimehot'
+const TRENDING_DETAIL_URL = 'https://m.s.weibo.com/topic/detail?q='
+
 const bot = new Telegraf(TOKEN)
 
-async function saveRawJson (newTopicList) {
+async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
-  const words = newTopicList.map(o => ({
-    title: o.title,
-    category: o.forum_name,
-    description: o.name
+  const words = data.map(o => ({
+    title: o.desc,
+    category: o.category,
+    description: o.description,
+    url: o.scheme,
+    hot: o.desc_extr,
+    ads: !!o.promotion
   }))
-let wordsAlreadyDownload = []
+  let wordsAlreadyDownload = []
   try {
     await fs.stat(fullPath)
     const content = await fs.readFile(fullPath)
@@ -31,14 +34,6 @@ let wordsAlreadyDownload = []
   const allHots = _.uniqBy(_.concat(words, wordsAlreadyDownload), 'title')
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
-// 保存原始数据
-const wordsAll = mergeWords(words, wordsAlreadyDownload);
-await Deno.writeTextFile(fullPath, JSON.stringify(wordsAll));
-
-// 更新 README.md
-const readme = await createReadme(wordsAll);
-await Deno.writeTextFile("./README.md", readme);
-
 
 async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
@@ -70,7 +65,7 @@ async function fetchTrendingDetail (title) {
 async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   if (data.ok === 1) {
-    const items = data.data.cards[0]?.card_group
+    const items = data.data.cards[0].card_group
     if (items) {
       for (let item of items) {
         const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
