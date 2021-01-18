@@ -7,8 +7,8 @@ const axios = require('axios')
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
-const TRENDING_URL = 'https://m.weibo.cn/api/container/getIndex?containerid=106003type%3D25%26t%3D3%26disable_hot%3D1%26filter_type%3Drealtimehot'
-const TRENDING_DETAIL_URL = 'https://m.s.weibo.com/topic/detail?q='
+const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
+const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
 
@@ -16,11 +16,11 @@ async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
-    title: o.desc,
-    category: o.category,
-    description: o.description,
-    url: o.scheme,
-    hot: o.desc_extr,
+    title: o.title,
+    category: o.forum_name,
+    description: o.name,
+    url: o.id,
+    hot: o.review,
     ads: !!o.promotion
   }))
   let wordsAlreadyDownload = []
