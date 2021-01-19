@@ -53,14 +53,14 @@ async function sendTgMessage(data) {
   })
 }
 
-async function fetchTrendingDetail (title) {
+/*async function fetchTrendingDetail (title) {
   const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
   const $ = cheerio.load(data)
-  /*return {
-    category: $('#pl_topicband dl>dd').first().text(),
-    desc: $('#pl_topicband dl>dd').last().text()
-  }*/
-}
+  //return {
+   // category: $('#pl_topicband dl>dd').first().text(),
+   // desc: $('#pl_topicband dl>dd').last().text()
+  //}
+}*/
 
 async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
