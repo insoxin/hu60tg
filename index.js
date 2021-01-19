@@ -19,7 +19,7 @@ async function saveRawJson (data) {
     title: o.title,
     //category: o.category,
     //description: o.description,
-    url: o.id,
+    url: o.id
     //hot: o.read_count,
     //ads: !!o.promotion
   }))
