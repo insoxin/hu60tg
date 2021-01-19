@@ -1,4 +1,9 @@
 {
+    "userInfo": {
+        "uid": null,
+        "name": null,
+        "isLogin": null
+    },{
     "currPage":1,
     "cards":[
                     {
