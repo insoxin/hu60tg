@@ -1,12 +1,6 @@
 {
     "currPage":1,
-    "inso":[
-            {
-                "show_type":0,
-                "title":"啊啊",
-                "card_type":11,
-                "itemid":"hotword",
-                "card_group":[
+     "card_group":[
                     {
                         "card_type":4,
                         "pic":"https://simg.s.weibo.com/20180205110043_img_search_stick%403x.png",
@@ -58,9 +52,9 @@
                         "pic":"https://simg.s.weibo.com/20170303_img_search_2.png"
                     }
                 ]
-            }
+
 			
-			]
+
 
 
 }
