@@ -72,7 +72,7 @@ async function fetchTrendingDetail (title) {
         item.category = category
         item.description = desc
       }
-      await saveRawJson(items)
+      
       await sendTgMessage(items)
     }
   }
@@ -82,3 +82,4 @@ async function fetchTrendingDetail (title) {
 bootstrap() 
  
 */
+await saveRawJson(items)
