@@ -62,7 +62,7 @@ async function fetchTrendingDetail (title) {
   }
 }
 
-/* async function bootstrap () {
+ async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   if (data.ok === 1) {
     const items = data.data.cards[0].card_group
@@ -80,4 +80,4 @@ async function fetchTrendingDetail (title) {
 }
 
 bootstrap() 
- */
+ 
