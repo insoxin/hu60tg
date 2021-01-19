@@ -12,17 +12,17 @@ const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
 
-async function data (data) {
+async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
-  const words = 123/*newTopicList.map (o => ({
-    title: o.title,
-    //category: o.category,
-    //description: o.description,
-    url: o.id,
-    //hot: o.read_count,
-    //ads: !!o.promotion
-  })) */
+  const words = data.map(o => ({
+    title: o.desc,
+    category: o.category,
+    description: o.description,
+    url: o.scheme,
+    hot: o.desc_extr,
+    ads: !!o.promotion
+  }))
   let wordsAlreadyDownload = []
   try {
     await fs.stat(fullPath)
@@ -34,7 +34,6 @@ async function data (data) {
   const allHots = _.uniqBy(_.concat(words, wordsAlreadyDownload), 'title')
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
-
  /* async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
   const text = newTopicList.splice(1,20).map((o, i) => {
