@@ -7,7 +7,7 @@ const axios = require('axios')
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
-const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/index.index.json'
+const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/20.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
@@ -16,8 +16,8 @@ async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
-    title: o.desc,
-    category: o.category,
+    title: o.title,
+    category: o.id,
     description: o.description,
     url: o.scheme,
     hot: o.desc_extr,
@@ -65,7 +65,7 @@ async function fetchTrendingDetail (title) {
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   if (data.currPage === 1) {
-    const items = data.cards
+    const items = data.newTopicList
     if (items) {
       for (let item of items) {
         //const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
