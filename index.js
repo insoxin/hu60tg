@@ -8,7 +8,7 @@ const axios = require('axios')
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/index.index.json'
-const TRENDING_DETAIL_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/2021-01-19.json'
+const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
 
