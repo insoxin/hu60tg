@@ -36,7 +36,7 @@ async function saveRawJson (data) {
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
 
-/* async function sendTgMessage(data) {
+ async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
   const text = data.splice(1,20).map((o, i) => {
     if (o.promotion) {
@@ -53,7 +53,7 @@ async function saveRawJson (data) {
     disable_web_page_preview: true
   })
 }
- 
+/* 
 async function fetchTrendingDetail (title) {
   const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
   const $ = cheerio.load(data)
