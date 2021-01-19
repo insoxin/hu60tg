@@ -20,7 +20,7 @@ async function saveRawJson (data) {
     category: o.id,
     description: o.description,
     url: o.id,
-    uinfo: o.(uinfo.name),
+    uinfo: o.uinfo.name,
     hot: o.read_count,
     ads: !!o.promotion
   }))
