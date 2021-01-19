@@ -60,7 +60,7 @@ async function sendTgMessage(data) {
     category: $('#pl_topicband dl>dd').first().text(),
     desc: $('#pl_topicband dl>dd').last().text()
   }
-} */
+}
 
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
@@ -81,3 +81,4 @@ async function sendTgMessage(data) {
 
 bootstrap() 
  
+ */
