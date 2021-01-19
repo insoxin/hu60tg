@@ -35,13 +35,13 @@ async function saveRawJson (data) {
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
 
-async function sendTgMessage(data) {
+/* async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
   const text = data.splice(1,2).map((o, i) => {
-    /*if (o.uid) {
+    if (o.uid) {
       return `💰[bitcoin:bc1q2lfx6y52p93qwk6y6yhszzfhjdt2anz43xw6ee
 ]`
-    }*/
+    }
     if (ranks[i]) {
       return `${ranks[i]} [${o.title}](${o.id}) ${(o.read_count / 10000).toFixed(2)} 万`
     }
@@ -51,7 +51,8 @@ async function sendTgMessage(data) {
     parse_mode: 'Markdown',
     disable_web_page_preview: true
   })
-}
+} 
+*/
 
 /*async function fetchTrendingDetail (title) {
   const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
@@ -62,7 +63,7 @@ async function sendTgMessage(data) {
   //}
 }*/
 
-/* async function bootstrap () {
+/*  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   if (data.currPage === 1) {
     const items = data.newTopicList[0].card_group
@@ -79,4 +80,5 @@ async function sendTgMessage(data) {
   process.exit(0)
 }
  
-bootstrap() */
+bootstrap() 
+ */
