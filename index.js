@@ -72,7 +72,7 @@ async function fetchTrendingDetail (title) {
         item.category = category
         item.description = desc
       }
-      
+      await saveRawJson(items)
       await sendTgMessage(items)
     }
   }
@@ -82,4 +82,21 @@ async function fetchTrendingDetail (title) {
 bootstrap() 
  
 */
-await saveRawJson(items)
+ async function bootstrap () {
+  /* const { data } = await axios.get(TRENDING_URL)
+  if (data.ok === 1) {
+    const items = data.data.cards[0].card_group
+    if (items) {
+      for (let item of items) {
+        const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
+        item.category = category
+        item.description = desc
+      } */
+      await saveRawJson(items)
+      //await sendTgMessage(items)
+    }
+   /* } */
+  process.exit(0)
+}
+
+bootstrap() 
