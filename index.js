@@ -12,7 +12,7 @@ const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
 
-async function saveRawJson (data) {
+async function data (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
   const words = 123/*newTopicList.map (o => ({
