@@ -19,7 +19,7 @@ async function saveRawJson (data) {
     title: o.title,
     category: o.category,
     description: o.description,
-    url: o.scheme,
+    url: o.id,
     hot: o.desc_extr,
     ads: !!o.promotion
   }))
@@ -43,9 +43,9 @@ async function sendTgMessage(data) {
 ]`
     }
     if (ranks[i]) {
-      return `${ranks[i]} [${o.desc}](${o.scheme}) ${(o.desc_extr / 10000).toFixed(2)} 万`
+      return `${ranks[i]} [${o.title}](${o.id}) ${(o.desc_extr / 10000).toFixed(2)} 万`
     }
-    return `🔥 [${o.desc}](${o.scheme}) ${(o.desc_extr / 10000).toFixed(2)} 万`})
+    return `🔥 [${o.title}](${o.id}) ${(o.desc_extr / 10000).toFixed(2)} 万`})
   text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 的微博热搜`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'Markdown',
