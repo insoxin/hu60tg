@@ -15,7 +15,7 @@ const bot = new Telegraf(TOKEN)
 async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
-  const words = newTopicList.map/* (o => ({
+  const words = 123/*newTopicList.map (o => ({
     title: o.title,
     //category: o.category,
     //description: o.description,
