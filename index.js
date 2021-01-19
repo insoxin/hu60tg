@@ -64,7 +64,7 @@ async function fetchTrendingDetail (title) {
 */
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
-  if (data.currPage === 1) {
+  if (data.ok === 1) {
     const items = data.data.inso[0].card_group
     if (items) {
       for (let item of items) {
