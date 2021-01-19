@@ -62,21 +62,21 @@ async function sendTgMessage(data) {
   //}
 }*/
 
-async function bootstrap () {
+/* async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   if (data.currPage === 1) {
     const items = data.newTopicList[0].card_group
   if (items) {
-      for (let item of items)   /*{
+      for (let item of items)   {
          const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
         item.category = category
         item.description = desc
-      }*/
+      }
       await saveRawJson(items)
       await sendTgMessage(items)
     }
   }
   process.exit(0)
 }
-
+ */
 bootstrap() 
