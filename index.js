@@ -68,9 +68,9 @@ async function bootstrap () {
     const items = data.data.cards[0]?.card_group
     if (items) {
       for (let item of items) {
-        /* const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
+         const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
         item.category = category
-        item.description = desc*/
+        item.description = desc
       }
       await saveRawJson(items)
       await sendTgMessage(items)
