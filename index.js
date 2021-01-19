@@ -74,7 +74,7 @@ async function fetchTrendingDetail (title) {
        // item.description = desc
       }
       await saveRawJson(items)
-      //await sendTgMessage(items)
+      await sendTgMessage(items)
     }
   }
   process.exit(0)
