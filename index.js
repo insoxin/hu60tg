@@ -16,7 +16,7 @@ async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
-    title: o.title,
+    title: o.desc,
     category: o.category,
     description: o.description,
     url: o.scheme,
