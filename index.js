@@ -17,11 +17,11 @@ async function saveRawJson (data) {
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
     title: o.title,
-    category: o.category,
-    description: o.description,
+    //category: o.category,
+    //description: o.description,
     url: o.id,
-    hot: o.read_count,
-    ads: !!o.promotion
+    //hot: o.read_count,
+    //ads: !!o.promotion
   }))
   let wordsAlreadyDownload = []
   try {
