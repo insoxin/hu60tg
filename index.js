@@ -15,14 +15,14 @@ const bot = new Telegraf(TOKEN)
 async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
   const fullPath = `./api/${date}.json`
-  const words = newTopicList.map(o => ({
+  const words = newTopicList.map/* (o => ({
     title: o.title,
     //category: o.category,
     //description: o.description,
-    url: o.id
+    url: o.id,
     //hot: o.read_count,
     //ads: !!o.promotion
-  }))
+  })) */
   let wordsAlreadyDownload = []
   try {
     await fs.stat(fullPath)
@@ -35,7 +35,7 @@ async function saveRawJson (data) {
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
 
- async function sendTgMessage(data) {
+ /* async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
   const text = newTopicList.splice(1,20).map((o, i) => {
     if (o.uid) {
@@ -52,7 +52,7 @@ async function saveRawJson (data) {
     disable_web_page_preview: true
   })
 } 
-
+ */
 
 /*async function fetchTrendingDetail (title) {
   const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
