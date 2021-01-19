@@ -37,7 +37,7 @@ async function saveRawJson (data) {
 
 async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
-  const text = data.splice(1,1).map((o, i) => {
+  const text = data.splice(1,2).map((o, i) => {
     if (o.promotion) {
       return `💰[bitcoin:bc1q2lfx6y52p93qwk6y6yhszzfhjdt2anz43xw6ee
 ]`
