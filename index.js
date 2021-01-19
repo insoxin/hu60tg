@@ -8,7 +8,7 @@ const axios = require('axios')
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/index.index.json'
-const TRENDING_DETAIL_URL = 'https://m.s.weibo.com/topic/detail?q='
+const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
 
@@ -56,10 +56,10 @@ async function sendTgMessage(data) {
 async function fetchTrendingDetail (title) {
   const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
   const $ = cheerio.load(data)
-  return {
+  /*return {
     category: $('#pl_topicband dl>dd').first().text(),
     desc: $('#pl_topicband dl>dd').last().text()
-  }
+  }*/
 }
 
 async function bootstrap () {
