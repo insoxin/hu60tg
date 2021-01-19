@@ -69,8 +69,8 @@ async function fetchTrendingDetail (title) {
     if (items) {
       for (let item of items) {
         //const { category, desc } = await fetchTrendingDetail(encodeURIComponent(item.desc))
-        item.category = category
-        item.description = desc
+       // item.category = category
+       // item.description = desc
       }
       await saveRawJson(items)
       await sendTgMessage(items)
