@@ -5,7 +5,6 @@ const cheerio = require('cheerio')
 const _ = require('lodash')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
-const TelegramBot = require('node-telegram-bot-api');
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
@@ -13,31 +12,6 @@ const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
-
-// Create a bot that uses 'polling' to fetch new updates
-const botme = new TelegramBot(TOKEN, {polling: true});
-
-// Matches "/echo [whatever]"
-botme.onText(/\/echo (.+)/, (msg, match) => {
-  // 'msg' is the received Message from Telegram
-  // 'match' is the result of executing the regexp above on the text content
-  // of the message
-
-  const chatId = msg.chat.id;
-  const resp = match[1]; // the captured "whatever"
-
-  // send back the matched "whatever" to the chat
-  botme.sendMessage(chatId, resp);
-});
-
-// Listen for any kind of message. There are different kinds of
-// messages.
-botme.on('message', (msg) => {
-  const chatId = msg.chat.id;
-
-  // send a message to the chat acknowledging receipt of their message
-  botme.sendMessage(chatId, 'Received your message');
-});
 
 async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
