@@ -7,7 +7,7 @@ const axios = require('axios')
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
-const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/20.json'
+const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
@@ -47,7 +47,7 @@ async function saveRawJson (data) {
       return `${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`
     }
     return `🔥 <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`})
-  text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 的微博热搜`)
+  text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 在虎绿林首页的帖子`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
