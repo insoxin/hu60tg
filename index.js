@@ -12,13 +12,13 @@ const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
-//const bot = new Telegraf(TOKEN)
+const bot = new Telegraf(TOKEN)
 
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(TOKEN, {polling: true});
+const botme = new TelegramBot(TOKEN, {polling: true});
 
 // Matches "/echo [whatever]"
-bot.onText(/\/echo (.+)/, (msg, match) => {
+botme.onText(/\/echo (.+)/, (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
@@ -27,16 +27,16 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   const resp = match[1]; // the captured "whatever"
 
   // send back the matched "whatever" to the chat
-  bot.sendMessage(chatId, resp);
+  botme.sendMessage(chatId, resp);
 });
 
 // Listen for any kind of message. There are different kinds of
 // messages.
-bot.on('message', (msg) => {
+botme.on('message', (msg) => {
   const chatId = msg.chat.id;
 
   // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, 'Received your message');
+  botme.sendMessage(chatId, 'Received your message');
 });
 
 async function saveRawJson (data) {
