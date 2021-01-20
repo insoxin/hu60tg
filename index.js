@@ -49,7 +49,6 @@ async function saveRawJson (data) {
     return `🔥 <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`})
   text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 的微博热搜`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
-    parse_mode: 'Markdown',
     parse_mode: 'HTML',
     disable_web_page_preview: true
   })
