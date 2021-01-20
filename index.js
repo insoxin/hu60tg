@@ -46,7 +46,7 @@ async function saveRawJson (data) {
     if (ranks[i]) {
       return `${ranks[i]} [${o.title}](https://hu60.cn/q.php/bbs.topic.${o.id}.html) ${(o.read_count / 10000).toFixed(2)} 万`
     }
-    return `🔥 [``${o.title}``](https://hu60.cn/q.php/bbs.topic.${o.id}.html) ${(o.read_count / 10000).toFixed(2)} 万`})
+    return `🔥 [`,`${o.title}`,`](https://hu60.cn/q.php/bbs.topic.${o.id}.html) ${(o.read_count / 10000).toFixed(2)} 万`})
   text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 的微博热搜`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'Markdown',
