@@ -47,7 +47,7 @@ async function saveRawJson (data) {
       return `${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`
     }
     return `🔥 <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`})
-  text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 在虎绿林首页的帖子`)
+  text.unshift(`在虎绿林${dayjs().format('YYYY-MM-DD HH:MM:ss')} 首页的帖子`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
