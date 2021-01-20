@@ -2,7 +2,7 @@ const fs = require('fs/promises')
 const dayjs = require('dayjs')
 const cheerio = require('cheerio')
 const _ = require('lodash')
-const { timeago.js} = require('timeago.js')
+const moment = require('moment')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
 
@@ -48,7 +48,7 @@ async function saveRawJson (data) {
     if (ranks[i]) {
       return `${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${o.read_count }`
     }
-    return ` <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${o.read_count},`
+    return ` <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${o.read_count},${moment(${o.ctime}).format("YYYYMMDD")}  `
   })
   text.unshift(`在虎绿林${dayjs().format('YYYY-MM-DD HH:MM:ss')} 首页的帖子`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
