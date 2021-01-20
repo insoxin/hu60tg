@@ -58,14 +58,15 @@ async function saveRawJson (data) {
   })
 }
 
-async function fetchTrendingDetail (topic_id) {
-  const { data } = await axios.get(`https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html`)
-   const itemss = data.newTopicList
+/* async function fetchTrendingDetail (title) {
+  const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
+  const $ = cheerio.load(data)
   return {
-    category: $('#markdown-body dl>dd').first().text(),
-    content: $('#topic-content markdown-body dl>dd').last().text()
+    category: $('#pl_topicband dl>dd').first().text(),
+    desc: $('#pl_topicband dl>dd').last().text()
   }
-}
+} */
+
 
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
