@@ -18,13 +18,14 @@ async function saveRawJson (data) {
   const fullPath = `./api/${date}.json`
   const words = data.map(o => ({
     title: o.title,
-    category: o.id,
+    category: o.forum_name,
     description: o.description,
-    url: o.id,
+    url: o.topic_id,
     ctime: o.ctime,
     essence: o.essence,
     uinfo: o.uinfo.name,
     hot: o.read_count,
+    reply_count: o.reply_count,
     ads: !!o.promotion
   }))
   let wordsAlreadyDownload = []
@@ -56,16 +57,16 @@ async function saveRawJson (data) {
     disable_web_page_preview: true
   })
 }
-/* 
-async function fetchTrendingDetail (title) {
-  const { data } = await axios.get(`${TRENDING_DETAIL_URL}${title}`)
-  const $ = cheerio.load(data)
+
+async function fetchTrendingDetail (topic_id) {
+  const { data } = await axios.get(`https://hu60.cn/q.php/bbs.topic.${o.topic_id}.json`)
+   const itemss = data.newTopicList
   return {
     category: $('#pl_topicband dl>dd').first().text(),
     desc: $('#pl_topicband dl>dd').last().text()
   }
 }
-*/
+
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   if (data.currPage === 1) {
