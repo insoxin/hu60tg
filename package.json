@@ -11,6 +11,7 @@
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
     "dayjs": "^1.9.8",
+    "lodash": "^2.29.1",
     "lodash": "^4.17.20",
     "node-telegram-bot-api": "^0.51.0",
     "telegraf": "^3.38.0"
