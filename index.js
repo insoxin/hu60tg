@@ -21,6 +21,7 @@ async function saveRawJson (data) {
     category: o.id,
     description: o.description,
     url: o.id,
+    ctime: o.ctime,
     essence: o.essence,
     uinfo: o.uinfo.name,
     hot: o.read_count,
