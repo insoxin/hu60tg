@@ -2,7 +2,7 @@ const fs = require('fs/promises')
 const dayjs = require('dayjs')
 const cheerio = require('cheerio')
 const _ = require('lodash')
-const timeago.js = require('timeago.js')
+const { timeago.js} = require('timeago.js')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
 
