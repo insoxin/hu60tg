@@ -41,17 +41,17 @@ async function saveRawJson (data) {
 }
 
  async function sendTgMessage(data) {
-  const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
+  const ranks = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
   const text = data.splice(1,20).map((o, i) => {
     if (o.essence === 1) {
-      return `🔥<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(3)}k)`
+      return `🔥${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(3)}k)`
     }
     if (ranks[i]) {
       return `${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${o.read_count }`
     }
     return ` <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${o.read_count},${moment().startOf('hour').fromNow()} `
   })
-  text.unshift(`在虎绿林${dayjs().format('YYYY-MM-DD HH:MM:ss')} 首页的帖子`)
+  text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')}的首页`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
