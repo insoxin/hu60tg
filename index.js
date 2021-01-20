@@ -59,11 +59,11 @@ async function saveRawJson (data) {
 }
 
 async function fetchTrendingDetail (topic_id) {
-  const { data } = await axios.get(`https://hu60.cn/q.php/bbs.topic.${o.topic_id}.json`)
+  const { data } = await axios.get(`https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html`)
    const itemss = data.newTopicList
   return {
-    category: $('#pl_topicband dl>dd').first().text(),
-    desc: $('#pl_topicband dl>dd').last().text()
+    category: $('#markdown-body dl>dd').first().text(),
+    content: $('#topic-content markdown-body dl>dd').last().text()
   }
 }
 
