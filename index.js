@@ -50,6 +50,7 @@ async function saveRawJson (data) {
   text.unshift(`${dayjs().format('YYYY-MM-DD HH:MM:ss')} 的微博热搜`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'Markdown',
+    parse_mode: 'HTML',
     disable_web_page_preview: true
   })
 }
