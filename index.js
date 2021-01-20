@@ -5,7 +5,7 @@ const cheerio = require('cheerio')
 const _ = require('lodash')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
-const  TelegramBot  =  require （'node-telegram-bot-api' ）; 
+const  TelegramBot  =  require （'node-telegram-bot-api' ）
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
