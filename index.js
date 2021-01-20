@@ -41,7 +41,6 @@ async function saveRawJson (data) {
 
  async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
-  const ctime = (dayjs().format('YYYY-MM-DD HH:MM:ss')
   const text = data.splice(1,20).map((o, i) => {
     if (o.essence === 1) {
       return `🔥<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`
