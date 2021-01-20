@@ -43,7 +43,7 @@ async function saveRawJson (data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
   const text = data.splice(1,20).map((o, i) => {
     if (o.essence === 1) {
-      return `🔥<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${(o.read_count / 10000).toFixed(2)} 万`
+      return `🔥<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 10000).toFixed(3)}w)`
     }
     if (ranks[i]) {
       return `${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},${o.read_count }`
