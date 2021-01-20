@@ -12,10 +12,10 @@ const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
-const bot = new Telegraf(TOKEN)
+//const bot = new Telegraf(TOKEN)
 
 // Create a bot that uses 'polling' to fetch new updates
-//const bot = new TelegramBot(TOKEN, {polling: true});
+const bot = new TelegramBot(TOKEN, {polling: true});
 
 bot.onText(/\/hentai/, function onLoveText(msg) {
   bot.sendMessage(msg.chat.id, 'Are you a hetai?');
