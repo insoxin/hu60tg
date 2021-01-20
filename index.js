@@ -39,14 +39,13 @@ async function saveRawJson (data) {
  async function sendTgMessage(data) {
   const ranks = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
   const text = data.splice(1,20).map((o, i) => {
-    if (o.promotion) {
-      return `💰[bitcoin:bc1q2lfx6y52p93qwk6y6yhszzfhjdt2anz43xw6ee
-]`
+    if (o.essence === 1) {
+      return `🔥<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`
     }
     if (ranks[i]) {
       return `${ranks[i]}<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`
     }
-    return `🔥 <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万`})
+    return ` <a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> ${(o.read_count / 10000).toFixed(2)} 万${dayjs().format('YYYY-MM-DD HH:MM:ss')}`})
   text.unshift(`在虎绿林${dayjs().format('YYYY-MM-DD HH:MM:ss')} 首页的帖子`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'HTML',
