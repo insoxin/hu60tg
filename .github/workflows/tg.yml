@@ -33,7 +33,7 @@ jobs:
           git pull --rebase
           yarn start
           git add -A
-          git diff-index --quiet HEAD || git commit -m '实时更新微博热搜'
+          git diff-index --quiet HEAD || git commit -m '计划任务自动更新触发'
           git push
         env:
           TOKEN: ${{ secrets.TOKEN }}
