@@ -5,6 +5,7 @@ const _ = require('lodash')
 const moment = require('moment')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
+const timeago = require("timeago.js")
 //const Bot = require('node-telegram-bot-api');
 
 const TOKEN = process.env.TOKEN
@@ -52,7 +53,7 @@ async function saveRawJson (data) {
     /*if (ranks[i]) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
     } */
-     return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count}),${moment().startOf('1610975015').fromNow()}`
+     return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count}),${timeago.format(1473245023718)}`
   }
                                      
 
