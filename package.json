@@ -12,6 +12,7 @@
     "cheerio": "^1.0.0-rc.5",
     "dayjs": "^1.9.8",
     "moment": "^2.29.1",
+    "timeago.js": "^4.0.2",
     "lodash": "^4.17.20",
     "node-telegram-bot-api": "^0.51.0",
     "telegraf": "^3.38.0"
