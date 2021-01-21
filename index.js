@@ -47,8 +47,7 @@ async function saveRawJson (data) {
       return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(3)}k)``${moment().startOf('o.ctime').fromNow()}`
     }
     if (ranks[i]) {
-      return {`:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}` 
-    }
+      return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
     }
     return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})``${moment().startOf('o.ctime').fromNow()}`
   })
