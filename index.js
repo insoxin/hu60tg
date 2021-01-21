@@ -42,9 +42,9 @@ async function saveRawJson (data) {
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
 
- async function sendTgMessage(chat) {
+ async function sendTgMessage(data) {
   const ranks = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
-  /* const text = chat.splice(1,20).map((o, i) => {
+ const text = data.splice(1,20).map((o, i) => {
     if (o.essence === 1) {
       return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k)`	  
     }
@@ -55,25 +55,15 @@ async function saveRawJson (data) {
   }
                                      
 
-  ) */
-  /* const textstat = chats.map((o, i) => {
-   if (o.newMsg === 1) {
-      return `正在审核`	  
-    }
-     if (ranks[i]) {
-      return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
-    } 
-     return `ces`
-  }
-                                     
-
-  )*/
-  //text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
+  ) 
+  )
+  text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
   
-  await bot.telegram.sendMessage(CHANNEL_ID, {
+  await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n',), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
-  })
+  }
+  )
 }
 
 /* async function fetchTrendingDetail (title) {
@@ -99,7 +89,7 @@ async function saveRawJson (data) {
        // item.description = desc
       }
       await saveRawJson(items)
-      await sendTgMessage(chats)
+      await sendTgMessage(items)
     }
   }
   process.exit(0)
