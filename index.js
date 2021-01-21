@@ -56,7 +56,7 @@ async function saveRawJson (data) {
                                      
 
   ) */
-  const textstat = chat.map((o, i) => {
+  const textstat = chats.map((o, i) => {
    /* if (o.newMsg === 1) {
       return `正在审核`	  
     }
