@@ -60,7 +60,7 @@ async function saveRawJson (data) {
                                      
 
   )
-  const textstat = chats.splice(1,1).map((o, i) => {
+  const textstat = chat.splice(1,1).map((o, i) => {
     if (o.newMsg === 1) {
       return `正在审核`	  
     }
@@ -93,7 +93,7 @@ async function saveRawJson (data) {
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
   const { chat } = await axios.get(CHAT_URL)
-  const chats = data.newChats
+  const chat = data.newChats
   if (data.currPage === 1) {
     const items = data.newTopicList
     if (items) {
