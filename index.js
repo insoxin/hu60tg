@@ -55,7 +55,7 @@ async function saveRawJson (data) {
     /*if (ranks[i]) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
     } */
-     return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count}),${agotime}`
+     return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count}),${o.ctime}`
   }
                                      
 
