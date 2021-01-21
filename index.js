@@ -5,10 +5,12 @@ const _ = require('lodash')
 const moment = require('moment')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
+const Bot = require('node-telegram-bot-api');
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
+const STAT_URL = 'https://hu60.cn/q.php/user.stat.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
