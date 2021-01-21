@@ -64,12 +64,11 @@ async function saveRawJson (data) {
      return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`
   }
                                      
-  text.push(`${moment().startOf('hour').fromNow()}`)
 
   )
   text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
   
-  await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
+  await bot.telegram.sendMessage(CHANNEL_ID, text.join('${moment().startOf('hour').fromNow()}\n'), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
   })
