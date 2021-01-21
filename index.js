@@ -92,7 +92,7 @@ async function saveRawJson (data) {
 
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
-  const { chat } = await axios.get(STAT_URL)
+  const { chat } = await axios.get(CHAT_URL)
   const chats = data.newChats
   if (data.currPage === 1) {
     const items = data.newTopicList
