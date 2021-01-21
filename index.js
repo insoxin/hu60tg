@@ -54,7 +54,7 @@ async function saveRawJson (data) {
     } */
      return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`
 	 
-	 {`{moment().startOf('hour').fromNow()}`}
+	 {`${moment().startOf('hour').fromNow()}`}
 	 
   }
   )
