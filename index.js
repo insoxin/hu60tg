@@ -51,7 +51,7 @@ async function saveRawJson (data) {
     }
     return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})``${moment().startOf('o.ctime').fromNow()}`
   })
-  text.unshift(`${moment().startOf('o.ctime').fromNow()}的虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
+  text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
