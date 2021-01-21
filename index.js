@@ -60,7 +60,7 @@ async function saveRawJson (data) {
                                      
 
   )
-  const textstat = chat.splice(1,0).map((o, i) => {
+  const textstat = chat.splice(0,0).map((o, i) => {
     if (o.newMsg === 1) {
       return `正在审核`	  
     }
