@@ -50,7 +50,7 @@ async function saveRawJson (data) {
  agotime = timeago.format(o.ctime*1000)
  //agotime = moment().startOf('o.ctime').fromNow()
     if (o.essence === 1) {
-      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k),${timeago.format('o.ctime'*1000)}`	  
+      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k),${agotime}`	  
     }
     /*if (ranks[i]) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
