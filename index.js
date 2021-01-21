@@ -2,7 +2,7 @@ const fs = require('fs/promises')
 const dayjs = require('dayjs')
 const cheerio = require('cheerio')
 const _ = require('lodash')
-const moment = require('moment')
+//const moment = require('moment')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
 const timeago = require("timeago.js")
@@ -46,9 +46,9 @@ async function saveRawJson (data) {
  async function sendTgMessage(data) {
  const ranks = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
  const text = data.splice(1,20).map((o, i) => {
- agotime = moment().startOf('o.ctime').fromNow()
+ //agotime = moment().startOf('o.ctime').fromNow()
     if (o.essence === 1) {
-      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k),${moment().startOf('o.ctime').fromNow()}`	  
+      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.topic_id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k)`	  
     }
     /*if (ranks[i]) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
