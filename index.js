@@ -56,21 +56,16 @@ async function saveRawJson (data) {
   const ranks = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
   const text = data.splice(1,20).map((o, i) => {
     if (o.essence === 1) {
-      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k)`
-	  
-	  {`$'{moment().format()}'`}
-	  
+      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(2)}k)`	  
     }
 /*     if (ranks[i]) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
     } */
      return `${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`
-	 
-	 {`'${moment().startOf('hour').fromNow()}'`}
-	 
   }
   )
   text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
+  text.push(`${moment().startOf('hour').fromNow()}`)
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n'), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
