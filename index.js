@@ -5,7 +5,7 @@ const _ = require('lodash')
 const moment = require('moment')
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
-const Bot = require('node-telegram-bot-api');
+//const Bot = require('node-telegram-bot-api');
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
@@ -14,6 +14,16 @@ const STAT_URL = 'https://hu60.cn/q.php/user.stat.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
+
+bot.start((ctx) => ctx.reply('Welcome'))
+bot.help((ctx) => ctx.reply('Send me a sticker'))
+bot.on('sticker', (ctx) => ctx.reply('👍'))
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.launch()
+
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
 async function saveRawJson (data) {
   const date = dayjs().format('YYYY-MM-DD')
