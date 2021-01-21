@@ -64,10 +64,10 @@ async function saveRawJson (data) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
     } 
      return `ces`
-  }*/
+  }
                                      
 
-  )
+  )*/
   //text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
   
   await bot.telegram.sendMessage(CHANNEL_ID, {
