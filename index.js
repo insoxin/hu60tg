@@ -61,10 +61,10 @@ async function saveRawJson (data) {
 
   )
   const textstat = data.chat.splice(0,1).map((o, i) => {
-    if (o.newMsg === 1) {
+   /* if (o.newMsg === 1) {
       return `正在审核`	  
     }
-/*     if (ranks[i]) {
+     if (ranks[i]) {
       return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
     } */
      return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.content}</a> @${o.uname}`
