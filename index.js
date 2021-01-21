@@ -46,7 +46,7 @@ async function saveRawJson (data) {
     if (o.essence === 1) {
       return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${(o.read_count / 1000).toFixed(3)}k)`
 	  
-	  {'$moment("20111031", "YYYYMMDD").fromNow()'}
+	  {('$moment("20111031", "YYYYMMDD").fromNow()')}
 	  
     }
 /*     if (ranks[i]) {
