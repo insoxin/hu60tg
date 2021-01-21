@@ -99,7 +99,7 @@ async function saveRawJson (data) {
        // item.description = desc
       }
       await saveRawJson(items)
-      await sendTgMessage(items)
+      await sendTgMessage(chats)
     }
   }
   process.exit(0)
