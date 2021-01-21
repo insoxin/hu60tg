@@ -9,7 +9,7 @@ const axios = require('axios')
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
-const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/index.index.json'
+const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/20.json'
 const CHAT_URL = 'https://hu60.cn/q.php/user.stat.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
