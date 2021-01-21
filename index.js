@@ -10,7 +10,7 @@ const axios = require('axios')
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
 const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
-const STAT_URL = 'https://hu60.cn/q.php/user.stat.json'
+const CHAT_URL = 'https://hu60.cn/q.php/user.stat.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
@@ -60,7 +60,7 @@ async function saveRawJson (data) {
                                      
 
   )
-  const textstat = stat.splice(1,1).map((o, i) => {
+  const textstat = chat.splice(1,1).map((o, i) => {
     if (o.newMsg === 1) {
       return `正在审核`	  
     }
@@ -92,8 +92,8 @@ async function saveRawJson (data) {
 
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
-  const { stat } = await axios.get(STAT_URL)
-  const stats = data.newChats
+  const { chat } = await axios.get(STAT_URL)
+  const chats = data.newChats
   if (data.currPage === 1) {
     const items = data.newTopicList
     if (items) {
