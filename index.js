@@ -56,7 +56,6 @@ async function saveRawJson (data) {
                                      
 
   ) 
-  )
   text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
   
   await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n',), {
