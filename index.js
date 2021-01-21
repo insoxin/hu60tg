@@ -15,12 +15,6 @@ const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
 const bot = new Telegraf(TOKEN)
 
-bot.start((ctx) => ctx.reply('Welcome'))
-bot.help((ctx) => ctx.reply('Send me a sticker'))
-bot.on('sticker', (ctx) => ctx.reply('👍'))
-bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.launch()
-
 // Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
@@ -66,9 +60,21 @@ async function saveRawJson (data) {
                                      
 
   )
+  const textstat = stat.splice(1,1).map((o, i) => {
+    if (o.newMsg === 1) {
+      return `正在审核`	  
+    }
+/*     if (ranks[i]) {
+      return `:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.title}</a> @${o.uinfo.name},(${o.read_count})`,`${moment().startOf('o.ctime').fromNow()}`
+    } */
+     return `🔥${ranks[i]}:<a href="https://hu60.cn/q.php/bbs.topic.${o.id}.html">${o.content}</a> @${o.uname}`
+  }
+                                     
+
+  )
   text.unshift(`虎绿林首页存档${dayjs().format('YYYY-MM-DD HH:MM:ss')}`)
   
-  await bot.telegram.sendMessage(CHANNEL_ID, text.join('${data.topic_id}\n'), {
+  await bot.telegram.sendMessage(CHANNEL_ID, text.join('\n', textstat), {
     parse_mode: 'HTML',
     disable_web_page_preview: true
   })
@@ -86,6 +92,8 @@ async function saveRawJson (data) {
 
  async function bootstrap () {
   const { data } = await axios.get(TRENDING_URL)
+  const { stat } = await axios.get(STAT_URL)
+  const stats = data.newChats
   if (data.currPage === 1) {
     const items = data.newTopicList
     if (items) {
