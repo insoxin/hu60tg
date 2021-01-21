@@ -46,7 +46,7 @@ async function saveRawJson (data) {
   await fs.writeFile(fullPath, JSON.stringify(allHots))
 }
 
- async function sendTgMessage(data,chat) {
+ async function sendTgMessage(chat) {
   const ranks = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
   const text = data.splice(1,20).map((o, i) => {
     if (o.essence === 1) {
