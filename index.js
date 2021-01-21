@@ -10,7 +10,7 @@ const timeago = require("timeago.js")
 
 const TOKEN = process.env.TOKEN
 const CHANNEL_ID = process.env.CHANNEL_ID
-const TRENDING_URL = 'https://raw.githubusercontent.com/insoxin/hu60tg/main/api/20.json'
+const TRENDING_URL = 'https://hu60.cn/q.php/index.index.json'
 const CHAT_URL = 'https://hu60.cn/q.php/user.stat.json'
 const TRENDING_DETAIL_URL = 'https://hu60.cn/q.php/bbs.search.html?keywords='
 
@@ -24,7 +24,7 @@ async function saveRawJson (data) {
     category: o.forum_name,
     description: o.description,
     url: o.topic_id,
-    ctime: o.ctime,
+    ctime: o.ctime* 1000,
     essence: o.essence,
     uinfo: o.uinfo.name,
     hot: o.read_count,
