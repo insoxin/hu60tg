@@ -1,0 +1,64 @@
+@charset "utf-8";
+/*---------------------------------------------------------------------------------------------------
+http://yuhuazhi.com/style/base.css
+------------------------------------------------------------------------------------------------------------*/
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-size:16px;line-height:1.25em;}
+body{min-width:320px;font-size:1em;font-family:'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;color:#000;-webkit-text-size-adjust:none;background:#F9F7F8;word-break:break-all;}
+input{outline:none;}
+u, i, s, em {font-style: normal;text-decoration: none;}
+img{border:0;vertical-align: middle;}
+a{color:#0099cc;text-decoration: none;}
+a:hover{color:#0099cc;}
+a:link{text-decoration: none;}
+a:active{text-decoration: none;}
+ul,li{list-style:none;}
+.clear{clear:both;}
+.imgblock{display:block;}
+
+#wraper{position:relative;padding:104px 0 5px;background:#FFFFFF;top:0;max-width:640px;margin:0 auto;z-index:100;overflow:hidden;}
+
+.head{top:0;left: 0;position: fixed;right:0;width:100%;margin:0 auto;z-index:1000;overflow:hidden;}
+
+/*顶部*/
+.headWrap{height:40px;background:#fff;padding:0 10px; margin:0 auto;}
+.headWrap .leftSide{float:left;width:100px;margin-top: 3px;}
+.headWrap .rightSide{float:right;margin-top:6px;}
+.head-nav{height:28px; line-height:28px; font-size:14px; font-family:"宋体";}
+.head-nav a{color:#db210b;}
+
+/* 导航 */
+.MeauNavs{overflow: hidden;zoom:1;width:100%;}
+
+.viewNavs{background-color:#353535; font-size:25px;float:left;width:20%;}
+.viewNavs li{float:left; width:100%;}
+.viewNavs a{display:block;height:64px;line-height:64px;background:#353535;color:#fff;text-align:center;cursor:pointer;}
+.viewNavs a.on{background:#db210b url("../images/nav-tip.jpg") no-repeat bottom center;}
+
+.viewMeau{background-color:#353535; font-size:14px;float:right;width:80%;}
+.viewMeau li{float:left; width:25%;}
+.viewMeau a{display:block;height:32px;line-height:32px;background:#353535;color:#fff;text-align:center;cursor:pointer;}
+.viewMeau a.on{background:#db210b url("../images/nav-tip.jpg") no-repeat bottom center; height:30px; line-height:30px; margin:1px;-moz-border-radius:5px;/* Gecko browsers */-webkit-border-radius:5px;   /* Webkit browsers */border-radius:5px;/* W3C syntax */}
+
+/* 首页主体 */
+.main{background-color:#FFFFFF;overflow:hidden; width:100%; margin:0 auto;}
+
+.tulist{overflow:hidden;margin-bottom:10px;}
+.tulist ul.list{overflow:hidden; zoom:1; width:99%; margin:0 auto;}
+.tulist ul.list li{background-color:#f9faf7;box-sizing: border-box;display:inline-block;padding:0 5px;float:left;overflow:hidden;width:50%;text-align:center; margin-bottom:10px;}
+.tulist ul.list li img{border:1px solid #e6e4e5;width:100%;padding:2px;box-sizing:border-box;}
+.tulist ul.list li img.ct{max-height:260px;}
+.tulist ul.list li img.kt{max-height:160px;}
+.tulist ul.list li h3,.tulist ul.list li p,.tulist ul.list li em{ border-bottom:1px solid #e6e4e5;background-color:#e6e4e5;box-sizing: border-box;width:100%;color:#000000;font-size:12px;line-height:1em;font-weight:normal;padding:5px;text-overflow: ellipsis;white-space: nowrap;overflow:hidden;font-family:"宋体"; display:block;}
+.tulist ul.more {color: #fff;display: block;height:40px;text-align: center;text-decoration: none; padding:0 7px;}
+.tulist ul.more a{background:url("../images/page-tip.jpg") repeat-x scroll center bottom #db210b;color: #fff;display: block;font-size: 16px;line-height: 40px;}
+
+.main .gaoxiao{margin:0 10px 10px; background-color:#FFFFFF;overflow:hidden;border:1px solid #cccccc;box-shadow:0 0 5px #ddd;}
+.main .gaoxiao h4{color:#000000;font-size:16px;padding:10px 10px;background:#F8F8F8;border-bottom:1px solid #cccccc;font-weight:normal;line-height:1em;}
+.main .gaoxiao h4 a{color:#000000;}
+
+.main .cont{margin:0 auto 10px;max-width:100%;}
+.main .cont img{display: block;margin: 0 auto;width:100%;}
+.main .cont a,.main .cont p{color:#666;}
+
+.main .mark{overflow:hidden;display:block
